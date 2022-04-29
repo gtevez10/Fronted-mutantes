@@ -6,6 +6,8 @@ import { MutanteComponent } from './pages/mutante/mutante.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { MutaRoutingModule } from './muta-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 
 
@@ -20,6 +22,8 @@ import { MutaRoutingModule } from './muta-routing.module';
   imports: [
     CommonModule,
     MutaRoutingModule,
+    FlexLayoutModule,
+    AngularMaterialModule,
   ]
 })
 export class MutantesModule { }
