@@ -1,1 +1,24 @@
-<p>listado works!</p>
+<h1>listado de Mutantes</h1>
+<mat-divider></mat-divider>
+<br>
+
+<div fxLayout="row wrap"
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="20px">
+    
+     
+    <div fxflex="10"
+        fxFlex.lg="15"
+        fxFlex.sm="30"
+        *ngFor="let mutante of mutantes">
+
+      <app-mutante-tarjeta [mutante]="mutante" ></app-mutante-tarjeta>
+
+    </div>
+</div>
+
+
+
+
+

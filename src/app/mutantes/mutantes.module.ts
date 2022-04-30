@@ -8,6 +8,9 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { MutaRoutingModule } from './muta-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { MutanteTarjetaComponent } from './components/mutante-tarjeta/mutante-tarjeta.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
+
 
 
 
@@ -17,7 +20,10 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
     BuscarComponent,
     MutanteComponent,
     HomeComponent,
-    ListadoComponent
+    ListadoComponent,
+    MutanteTarjetaComponent,
+    ImagenPipe,
+    
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,33 @@
+
+
+<mat-card >
+    <mat-card-header>
+        <mat-card-title> {{ mutante.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{  mutante.grupo }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="mutante | imagen">
+
+    <mat-card-content>
+        
+        <p>
+            <strong>Condicion: </strong>{{ mutante.condicion }}
+            <strong> Lugar de operacion: </strong> {{mutante.lugarDeOperacion}}
+            <br>
+            <strong> Super poder: </strong> {{mutante.superPoder}}
+            <br>
+            <strong> Tipo de vehiculo: </strong> {{mutante.vehiculo}}
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button 
+                color="warn">
+            Leer más...
+        </button>
+    
+        <button mat-button 
+                color="info">
+            Editar
+        </button>
+    </mat-card-actions>
+</mat-card>
