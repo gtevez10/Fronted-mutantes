@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { MutantesService } from '../../services/mutantes.service';
 
 @Component({
   selector: 'app-mutante',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MutanteComponent implements OnInit {
 
-  constructor() { }
+  constructor( private activatedRoute: ActivatedRoute,
+                private mutantesService: MutantesService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params
+      .subscribe(({ id  }) => console.log(id))
   }
 
 }

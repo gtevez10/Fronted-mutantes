@@ -10,6 +10,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { MutanteTarjetaComponent } from './components/mutante-tarjeta/mutante-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 
@@ -30,6 +33,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     MutaRoutingModule,
     FlexLayoutModule,
     AngularMaterialModule,
+    FormsModule,
   ]
 })
 export class MutantesModule { }
