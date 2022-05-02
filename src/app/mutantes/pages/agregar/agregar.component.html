@@ -1,5 +1,5 @@
-
-<h1>Nuevo Mutante</h1> 
+<h1> Añadir nuevo heroe </h1>
+ 
 
 <div fxLayout="row" 
      fxLayoutGap="40px"
@@ -16,16 +16,17 @@
                 <input matInput
                        type="text"
                        required
-                       [(ngModel)]="mutantes.nombre">
+                       [(ngModel)]="mutante.nombre">
             </mat-form-field>
 
             <mat-form-field fxFlex="100">
                 <mat-label>Heroe o Villano</mat-label>
     
-                <mat-select required 
-                            >
+                <mat-select required
+                            [(ngModel)]="mutante.grupo">
     
-                    <mat-option *ngFor=" let grupo of grupos " >
+                    <mat-option *ngFor=" let grupo of grupos " 
+                                 [value]="grupo.tipo">
                         {{ grupo.tipo}}
                     </mat-option>
     
@@ -37,10 +38,13 @@
                 <mat-label>Condicion</mat-label>
     
                 <mat-select required 
-                            >
+                            [(ngModel)]="mutante.condicion">
     
-                    <mat-option *ngFor=" let condi of condicion " >
-                        {{ condi.tipo}}
+                    <mat-option *ngFor=" let condi of condicion "
+                                 [value]="condi.tipo" >
+
+                        {{ condi.desc }}
+                        
                     </mat-option>
     
                 </mat-select>
@@ -51,10 +55,11 @@
                 <mat-label> Tipo de vehiculo </mat-label>
     
                 <mat-select required 
-                            >
+                            [(ngModel)]="mutante.vehiculo">
     
-                    <mat-option *ngFor=" let vehiculo of vehiculos " >
-                        {{ vehiculo.tipo}}
+                    <mat-option *ngFor=" let vehiculo of vehiculos " 
+                                [value]="vehiculo.tipo">
+                        {{ vehiculo.tipo }}
                     </mat-option>
     
                 </mat-select>
@@ -71,7 +76,7 @@
             <input matInput
                    type="text"
                    required
-                   >
+                   [(ngModel)]="mutante.superPoder">
         </mat-form-field>
 
         <mat-form-field fxFlex="100">
@@ -79,14 +84,14 @@
             <input matInput
                    type="text"
                    required
-                   >
+                   [(ngModel)]="mutante.lugarDeOperacion">
         </mat-form-field>
 
         <hr/>
         
         <div fxLayout="row">
             
-            <button  
+            <button (click)="guardar()" 
                     mat-raised-button
                     color="primary">
     

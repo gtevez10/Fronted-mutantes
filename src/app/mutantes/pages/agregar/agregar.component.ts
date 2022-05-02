@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MutantesActivos } from '../../interfaces/mutantes.interface';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { MutantesService } from '../../services/mutantes.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -11,40 +11,52 @@ import { FormsModule } from '@angular/forms';
 export class AgregarComponent implements OnInit {
 
   grupos = [
+
     {
       tipo:'Heroe',
-      
+      desc: 'Heroe'
     },
     {
-      tipo: 'Villano'
-    }
+      tipo:'Villano',
+      desc: 'Villano'
+    },
+    
+
   ]
 
   condicion = [
     {
-      tipo:'Libertad'
+      tipo:'Libertad',
+      desc: 'Libertad'
     },
     {
-      tipo:'Detenido'
+      tipo:'Detenido',
+      desc: 'Detenido'
     },
     {
-      tipo:'Desconocido'
+      tipo:'Desconocido',
+      desc: 'Desconocido'
     },
   ]
 
   vehiculos = [
+
     {
       tipo:'Terrestre',
+      desc: 'Terrestre'
     },
     {
       tipo:'Aereo',
+      desc: 'Aereo'
     },
     {
       tipo:'No necesita',
-    }
+      desc: 'No necesita'
+    },
+
   ]
 
-  mutantes: MutantesActivos = {
+  mutante: MutantesActivos = {
 
     nombre:'',
     grupo:'',
@@ -56,9 +68,77 @@ export class AgregarComponent implements OnInit {
 
   }
 
-  constructor() { }
+  
+  constructor( private mutanteservice: MutantesService,
+                private activatedroute:ActivatedRoute,
+                private router: Router,   ) { }
 
   ngOnInit(): void {
+
+    if( this.router.url.includes('editar') ) {
+      
+    this.activatedroute.params
+    .subscribe( ({id}) => this.mutante._id = id )
+
+
+    }
+
+
   }
+
+  guardar() {
+    if( this.mutante.nombre.trim().length === 0 ){
+
+      alert(' Todos los campos son obligatorios')    
+      return ;
+
+    } else if(this.mutante.grupo.trim().length === 0) {
+
+      alert(' Todos los campos son obligatorios')    
+      return ;
+
+    } else if( this.mutante.condicion.trim().length === 0 ) {
+
+      alert(' Todos los campos son obligatorios')    
+      return ;  
+      
+    } else if( this.mutante.superPoder.trim().length === 0 ){
+      alert(' Todos los campos son obligatorios')    
+      return ;
+
+    } else if( this.mutante.vehiculo.trim().length === 0 ){
+
+      alert(' Todos los campos son obligatorios')    
+      return ;
+
+    } else if( this.mutante.lugarDeOperacion.trim().length === 0 ) {
+
+      alert(' Todos los campos son obligatorios')    
+      return ;
+
+    } 
+
+    if( this.mutante._id ) { 
+
+      this.mutanteservice.actualizarMutante( this.mutante )
+        .subscribe( mutanteActualizado =>  alert('Mutante Actualizado, dirijase al listado de mutantes') )
+      
+     
+
+    } else {
+        
+         this.mutanteservice.agregarMutante( this.mutante )
+          .subscribe( mutanteCreado => {  alert('Mutante Creado, dirijase al listado de mutantes ')}) 
+
+         
+    }
+
+
+  }
+
+
+
+
+
 
 }

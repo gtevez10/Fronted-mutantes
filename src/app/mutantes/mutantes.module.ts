@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     ListadoComponent,
     MutanteTarjetaComponent,
     ImagenPipe,
+   
     
   ],
   imports: [

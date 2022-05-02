@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { InterfaceMutante, MutantesActivos } from '../interfaces/mutantes.interface';
+import {  MutantesActivos } from '../interfaces/mutantes.interface';
 import { environment } from '../../../environments/environment';
 
 
@@ -19,6 +19,16 @@ export class MutantesService {
   };
 
   getMutantePorId( id: string ):Observable<MutantesActivos> {
-    return this.http.get<MutantesActivos>(`https://rest-servesr-c.herokuapp.com/api/mutantes/${ id }`);
+    return this.http.get<MutantesActivos>(`${ this.baseUrl }/api/mutantes/${ id }`);
   };
+
+  agregarMutante( mutante: MutantesActivos ):Observable<MutantesActivos> {
+    return this.http.post<MutantesActivos>(`${ this.baseUrl }/api/mutantes`, mutante);
+  };
+
+  actualizarMutante( mutante: MutantesActivos ):Observable<MutantesActivos> {
+    return this.http.put<MutantesActivos>(`${ this.baseUrl }/api/mutantes/${ mutante._id }`, mutante);
+  };
+
+
 }
