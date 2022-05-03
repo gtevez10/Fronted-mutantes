@@ -1,24 +1,54 @@
-<p>error-page works!</p>
 
 
-<ul>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <li>
-        <a routerLink="/auth/login">
-            Ir a login
-        </a>
-    </li>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Montserrat&display=swap" rel="stylesheet">
 
-    <li>
-        <a routerLink="/auth/registro">
-            Ir la registro
-        </a>
-    </li>
+    <!-- Bootstrap CSS -->
+    <link href="error-page.component.css" type="text/css" rel="stylesheet" >
 
-    <li>
-        <a routerLink="/mutantes/listado">
-            Ir al listado
-        </a>
-    </li>
+    <title>Loggin</title>
+  </head>
+  <body>
+    <div class="container">
 
-</ul>
+
+      <div class="logo">
+          
+          <img class="recta" src="assets/mutantes/Rectangle 1551.svg">
+          <img class="logo-agro" src="assets/mutantes/asd.png" width="430px" height="98px" title="logo Agrosavia">
+        
+      </div>
+      <div class="loggin">
+      
+          <form class="loggin-form">
+            <h1 class="loggin-title"> Autoservicio </h1>
+
+            <div class="wrap-input">
+              
+            
+              <input type="email" value="Correo">
+            
+              <input type="password" value="contraseña"> 
+              <input type="submit" 
+                     value="Ingresar" 
+                    routerLink="/mutantes/listado">
+        
+          </div> 
+        
+        </form>
+        
+      </div>
+
+      
+  </div>
+ 
+  </body>
+</html>

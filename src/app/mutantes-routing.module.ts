@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthModule } from './auth/auth.module';
+
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 
