@@ -18,9 +18,6 @@ export class MutantesService {
     return this.http.get<MutantesActivos[]>(`${ this.baseUrl }/api/mutantes`);
   };
 
-  getMutantePorId( id: string ):Observable<MutantesActivos> {
-    return this.http.get<MutantesActivos>(`${ this.baseUrl }/api/mutantes/${ id }`);
-  };
 
   agregarMutante( mutante: MutantesActivos ):Observable<MutantesActivos> {
     return this.http.post<MutantesActivos>(`${ this.baseUrl }/api/mutantes`, mutante);
@@ -29,6 +26,13 @@ export class MutantesService {
   actualizarMutante( mutante: MutantesActivos ):Observable<MutantesActivos> {
     return this.http.put<MutantesActivos>(`${ this.baseUrl }/api/mutantes/${ mutante._id }`, mutante);
   };
+
+  borrarMutante( id: String ):Observable<MutantesActivos> {
+    return this.http.delete<MutantesActivos>(`${ this.baseUrl }/api/mutantes/${ id }`);
+  };
+
+
+
 
 
 }

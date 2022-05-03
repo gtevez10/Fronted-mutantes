@@ -128,11 +128,25 @@ export class AgregarComponent implements OnInit {
     } else {
         
          this.mutanteservice.agregarMutante( this.mutante )
-          .subscribe( mutanteCreado => {  alert('Mutante Creado, dirijase al listado de mutantes ')}) 
+          .subscribe( mutanteCreado => {  
+            this.router.navigate(['/mutantes']); 
+            alert(`Mutante creado con exito`)
+          }) 
 
          
     }
 
+
+  }
+
+  borrarMutante(){
+    this.mutanteservice.borrarMutante( this.mutante._id! )
+      .subscribe( mutanteBorrado => {
+       
+        this.router.navigate(['/mutantes']);
+        alert(`Mutante elimiando`)
+        
+      })
 
   }
 
